@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {BrowserRouter, Routes, Route} from "react-router-dom"; 
 import './index.css';
-import App from './App';
+// import App from './App';
 import Layout from './Layout';
 import Home from './pages/Home';
 import About from './pages/AboutUs';
@@ -10,29 +11,34 @@ import Contact from './pages/Contact';
 import Discover from './pages/Discover';
 import MoviePlaylist from './pages/MoviePlaylist';
 import Settings from './pages/Settings';
+import "./css/Global.css";
 
 
 
 
-return(
+export default function App() {
+  return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element = {<Layout/>}>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Layout />}>
 
-        </Route>
-        <Route index element={<Home />}/>
+          </Route>
+          <Route index element={<Home />} />
 
-        <Route path="about" element={<About/>}/>
-        <Route path="Blog" element={<Blog/>}/>
-        <Route path="Contact" element={<Contact/>}/>
-        <Route path="Discover" element={<Discover/>}/>
-        <Route path="MoviePlaylist" element={<MoviePlaylist/>}/>
-        <Route path="Settings" element={<Settings/>}/>
+          <Route path="about" element={<About />} />
+          <Route path="Blog" element={<Blog />} />
+          <Route path="Contact" element={<Contact />} />
+          <Route path="Discover" element={<Discover />} />
+          <Route path="MoviePlaylist" element={<MoviePlaylist />} />
+          <Route path="Settings" element={<Settings />} />
 
 
-      </Routes>
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
