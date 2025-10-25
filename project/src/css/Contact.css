@@ -1,0 +1,159 @@
+.search {
+    display: block;
+    text-align: left;
+    background: #F6F5F3;
+    color: #0B0C10;
+    border: 2px solid #49A69C;
+    padding: 5px;
+    padding-right: 52%;
+    margin-top: 10%;
+    margin-left: 10%;
+    /* margin:20%;*/
+}
+
+.search{
+    margin-left:50px;
+} 
+#search h2 {
+    margin-bottom: 10%;
+    font-size: xx-large;
+    color: #63F2D8;
+}
+
+#simple {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.info h2 {
+    font-size: xx-large;
+    color: #63F2D8;
+}
+
+.main-contact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.contact h2,
+.info h2 {
+    text-shadow: 0 0 0px #2ee, 0 0 0px #2ee, 0 0 10px #00ffff;
+}
+
+.contact {
+    flex: 1;
+    margin: 20px;
+    margin-top: 0px;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #63F2D8;
+}
+
+#email {
+    border: 2px solid #49A69C;
+}
+
+#simple ul {
+    flex: 1;
+}
+
+#simple {
+    display: flex;
+    flex-direction: row;
+    /* margin:10px; */
+}
+
+#simple a {
+    flex: 1;
+    text-decoration: none;
+}
+
+#simple a:hover {
+    color: #63F2D8;
+}
+
+.info {
+    flex: 1;
+    margin-left: 0px;
+    align-items: center;
+    /* margin-top: 20px; */
+    margin-left: 5%;
+    padding: 20px;
+    margin-top: -30px;
+    width: 70%;
+    text-align: left;
+    color: #63F2D8;
+}
+
+.info h3 {
+    margin: 5%;
+}
+
+.info p {
+    padding-left: 5px;
+    padding-right: 3%;
+    padding-bottom: 20%;
+    margin: 30px;
+    margin-top: 10px;
+    margin-left: 5%;
+    background: #FAEDFF;
+    color: #202833;
+    border: 2px solid #49A69C;
+}
+
+#simple {
+    margin-left: 5%;
+    margin-top: 10%;
+    display: block;
+    height: 80%;
+    border: 2px solid #49A69C;
+    padding: 5%;
+
+}
+.contact {
+    flex: 1;
+    padding-top: 0px;
+}
+
+.info {
+    flex: 1.3;
+    width: 83%;
+    padding-top: 10px;
+}
+
+.info h3 {
+    font-size: 20px;
+
+}
+.h3{
+    margin-bottom:-10px;
+}
+.fill {
+    font-size: 15px;
+    padding-bottom: 90px;
+    margin:20px;
+    padding-right: 65%;
+    border:2px solid #63F2D8;
+    margin-top:0px;
+    margin-left:30px;
+}
+
+#main-contact h1 {
+    font-size: 30px;
+}
+
+#simple a {
+    font-size: 15px;
+    flex: 1;
+    margin: 5px;
+}
+
+#simple {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

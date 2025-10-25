@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Routes, Route} from "react-router-dom"; 
-import './index.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import App from './App';
 import Layout from './Layout';
 import Home from './pages/Home';
@@ -16,14 +15,12 @@ import "./css/Global.css";
 
 
 
+
 export default function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-
-          </Route>
+      <Routes>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
 
           <Route path="about" element={<About />} />
@@ -32,13 +29,12 @@ export default function App() {
           <Route path="Discover" element={<Discover />} />
           <Route path="MoviePlaylist" element={<MoviePlaylist />} />
           <Route path="Settings" element={<Settings />} />
+        </Route>
 
-
-        </Routes>
-      </Layout>
+      </Routes>
     </BrowserRouter>
   );
-}
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

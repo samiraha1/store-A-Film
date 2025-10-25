@@ -1,0 +1,10 @@
+#settings-nav ul {
+    text-align: left;
+    flex-direction: column;
+}
+
+#settings-nav li {
+    margin-top: 60px;
+    font-size: 30px;
+    text-align: left;
+}

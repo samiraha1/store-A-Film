@@ -1,30 +1,27 @@
 import "./../css/Blog.css";
+import him from '../images/him.jpg';
+import demon from '../images/demon slayer.png';
 
-const Blog = () => {
+export default function Blog() {
     return (
-        <>
-            <h2>What's going on?</h2>
-            <div className="posts">
-                <article className="post">
-                    <img src="/images/demon-slayer.png" alt="demon" />
-                    <h3>New Demon Slayer Movie</h3>
-                    <p>This movie was so good. I definitely recommend. It explains a lot of backstory but it's so beautiful.</p>
-                </article>
-
-
-                <article className="post">
-                    <img src="/images/him.jpg" alt="him" />
-                    <h3>Negative Reviews on the movie 'Him'</h3>
-                    <p>There have been lots of opinions on the new Him movie. Many don't like the fact that they advertised the movie as being made by Jordan Peele but it was actually directed by Justin Tipping and is not a Jordan Peele movie.</p>
-                </article>
-
-
-                <article className="post">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/wo87F-va410" title="YouTube video player" frameBorder="0" allowFullScreen></iframe>
-                    <h3>New Horror movie called Primate coming out in 2026!!</h3>
-                    <p>A group of friends' tropical vacation turns into a terrifying, primal tale of horror and survival.</p>
-                </article>
+        <main id="main-blog">
+            <h2 class="blog-title">What's going on?</h2>
+            <a class="addBlog" href="addBlog.html">Add Blog Post</a>
+            <div id="blog">
+                <div class="popular">
+                    <img src={demon} alt="DemonSlayer"/>
+                    <h2>New Demon Slayer Movie</h2>
+                    <p class="post">This movie was so good. I definitly recommend. It explains a lot of backstory but it's
+                        so beautiful</p>
+                </div>
+                <div class="popular">
+                    <img src={him} alt="post" />
+                    <h2>Negative Reviews on the movie 'Him'</h2>
+                    <p class="post">There have been lots of opinions on the new Him movie. Many don't like the fact that
+                        they advertised the movie as being made by Jordan Peele but it was actually directed by Justin
+                        Tipping and is not a Jordan Peele movie.</p>
+                </div>
             </div>
-        </>
+        </main>
     );
 }
