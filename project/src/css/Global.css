@@ -1,6 +1,8 @@
+import bg from ../images/csce.jpg"; 
 body {
-    height:100%;
+    height: 100%;
     background-color: rgba(11, 12, 16, 0.85);
+
 
 }
 
@@ -68,54 +70,82 @@ main {
 #all h2 {
     text-align: center;
 }
+
 #all {
     text-align: center;
     font-size: x-large;
     height: 50%;
 }
-/* Make sure document fills viewport */
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-/* app-root is the top wrapper around header/main/footer */
 .app-root {
-  min-height: 100vh;          /* full viewport */
-  display: flex;
-  flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* main grows to fill remaining space between header and footer */
 .app-root main,
 .app-main,
 main {
-  flex: 1 1 auto;             /* ← KEY: lets main expand */
-  min-height: 0;              /* allows flex children to scroll properly */
-  box-sizing: border-box;
-  /* optional spacing so content doesn't touch footer */
-  padding-bottom: 1rem;
-}
-
-/* footer stays at bottom */
-footer, .site-footer {
-  flex-shrink: 0;
-}
-
-/* If header is fixed (position:fixed), give main top padding */
-.header-fixed + .app-main, .header-fixed + main {
-  padding-top: 70px; /* match your header height */
-}
-
-
-/* #root > .app-root, body > .app-root, .app-root{
-    min-height: 100vh;
-    display:flex;
-    flex-direction:column;
-}
-main, .app-main{
     flex: 1 1 auto;
+    min-height: 0;
+    box-sizing: border-box;
+    padding-bottom: 1rem;
 }
-.site-footer, footer{
-    flex-shrink:0; */
+
+footer,
+.site-footer {
+    flex-shrink: 0;
+}
+
+.header-fixed+.app-main,
+.header-fixed+main {
+    padding-top: 70px;
+    /* match your header height */
+}
+/* ::-webkit-scrollbar-track {
+  background: #0B0C10;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #63F2D8;
+} */
+@media (max-width: 768px) {
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        margin-left: 0%;
+        display: flex;
+        flex-direction: column;
+        background-image: url(images/csce.jpg);
+        color: #63F2D8;
+    }
+
+    body,
+    h1,
+    h2,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: 100vh;
+    }
+
+    main {
+        display: block;
+        overflow: auto;
+        flex: 1;
+    }
+}
