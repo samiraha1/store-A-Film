@@ -16,7 +16,6 @@ export default function MoviePLaylists() {
 
                 </div>
                 <div id="create">
-                    <div id="movie"></div>
                     <div class="movie" id="movies">
                         <img src={silence} alt="10ThingsIHateAboutYou"/>
                         <h4>10 Things I Hate About You</h4>

@@ -61,6 +61,7 @@
     #mainSec-nav a {
         margin-left: 20px;
         margin-right: 20px;
+        /* display: flex; */
     }
 
     #mainSec-nav {
@@ -69,7 +70,8 @@
     }
 
     #sec-nav ul{
-        flex-direction: row;
+        flex-direction: column;
+        gap:10px;
     }
     nav, .main-nav, #sec-nav{
         display:flex;

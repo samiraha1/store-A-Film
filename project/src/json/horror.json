@@ -1,0 +1,74 @@
+[
+    {
+        "_id": 1,
+        "name": "The Silence of The Lambs",
+        "director": "Jonathan Demme",
+        "releaseDate": "February 14, 1991",
+        "rottenTomato": "Rating on Rotten Tomato: 95%",
+        "img": "images/silence of the lambs.jpg"
+        
+    },
+    {
+        "_id": 2,
+        "name": "The Shining",
+        "director": "Stephen King",
+        "releaseDate": "May 23, 1980",
+        "rottenTomato": "Rating on Rotten Tomato: 84%",
+        "img": "images/theShining.jpg"
+        
+    },
+    {
+        "_id": 3,
+        "name": "Orphan",
+        "director": "Jaume Collet-Serra",
+        "releaseDate": "July 24, 2009",
+        "rottenTomato": "Rating on Rotten Tomato: 79%",
+        "img": "images/orphan.jpg"
+        
+    },
+    {
+        "_id": 4,
+        "name": "Insidious",
+        "director": "James Wan",
+        "releaseDate": "April 1, 2011",
+        "rottenTomato": "Rating on Rotten Tomato: 66%",
+        "img": "images/insidious.jpg"
+        
+    },
+    {
+        "_id": 5,
+        "name": "Parasite",
+        "director": "Bong Joon Ho",
+        "releaseDate": "October 11, 2019",
+        "rottenTomato": "Rating on Rotten Tomato: 99%",
+        "img": "images/parasite.jpg"
+        
+    },
+    {
+        "_id": 6,
+        "name": "Talk To Me",
+        "director": "Michael & Danny Philippou",
+        "releaseDate": "July 28, 2023",
+        "rottenTomato": "Rating on Rotten Tomato: 94%",
+        "img": "images/talkToMe.jpg"
+        
+    },
+    {
+        "_id": 7,
+        "name": "The Conjuring",
+        "director": "Michael Chaves & James Wan",
+        "releaseDate": "July 19, 2013",
+        "rottenTomato": "Rating on Rotten Tomato: 86%",
+        "img": "images/theConjuring.jpg"
+        
+    },
+    {
+        "_id": 8,
+        "name": "Bring Her Back",
+        "director": "Michael & Danny Philippou",
+        "releaseDate": "May 30, 2025",
+        "rottenTomato": "Rating on Rotten Tomato: 79%",
+        "img": "images/bringHerBack.jpg"
+        
+    }
+]

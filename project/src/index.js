@@ -9,6 +9,7 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Discover from './pages/Discover';
 import MoviePlaylist from './pages/MoviePlaylist';
+import Romance from './pages/Romance';
 import Settings from './pages/Settings';
 import "./css/Global.css";
 
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="Blog" element={<Blog />} />
           <Route path="Contact" element={<Contact />} />
           <Route path="Discover" element={<Discover />} />
+          <Route path="Romance" element={<Romance />} />
           <Route path="MoviePlaylist" element={<MoviePlaylist />} />
           <Route path="Settings" element={<Settings />} />
         </Route>
