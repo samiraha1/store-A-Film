@@ -7,7 +7,7 @@ export default function NavBar() {
     return (
         <nav id="mainSec-nav">
             <div id="sec-nav">
-                <ul>
+                <ul id="new-menu">
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/discover">Discover</NavLink></li>
                     <li><NavLink to="/blog">Blog</NavLink></li>

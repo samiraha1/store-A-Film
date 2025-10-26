@@ -16,18 +16,20 @@ export default function Home() {
                 <a class="add" href="addPlaylist.html">Add Playlist</a>
                 <div id="sec-playlists2">
                     <div class="profile-playlist">
-                        <NavLink to="/MoviePlaylist"><img src={horror} alt="horrorImg" />
-                        <h1>Horror</h1>
-                        <p>Some horrors I've watched</p></NavLink>
+                        <NavLink to="/MoviePlaylist" class="profile-playlist"><img src={horror} alt="horrorImg" />
+                            <h1>Horror</h1>
+                            <p>Some horrors I've watched</p></NavLink>
                         {/* <img src={horror} alt="horrorImg" />
                         <h1>Horror</h1>
                         <p>Some horrors I've watched</p> */}
                     </div>
-                    <a href="romance.html" class="profile-playlist">
-                        <img src={romance} alt="romnanceImg" />
-                        <h1>Romance</h1>
-                        <p>Movies I've watched and want to watch</p>
-                    </a>
+                    <div class="profile-playlist" >
+                        <NavLink to="/Romance" class="profile-playlist">
+                            <img src={romance} alt="romanceImg" />
+                            <h1>Romance</h1>
+                            <p>Movies I've watched and want to watch</p>
+                        </NavLink>
+                    </div>
                 </div>
             </div>
         </main>

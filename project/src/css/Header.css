@@ -48,3 +48,31 @@
     margin-top: -23%;
     padding-left: 0px;
 }
+@media (max-width: 768px) {
+    /* .menu-btn {
+        display: block;
+        font-size: 28px;
+        background: none;
+        border: none;
+        color: #63F2D8;
+        cursor: pointer;
+    }
+
+    #menu {
+        padding-right: 0px;
+        padding-left: 90px;
+        margin-left: 10%;
+        width: 50%;
+        margin-top: -55px;
+    }
+
+    #header button {
+        padding-left: 90px;
+    } */
+
+    /* #title #new-menu {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+    } */
+}

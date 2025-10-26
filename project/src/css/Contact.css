@@ -11,9 +11,10 @@
     /* margin:20%;*/
 }
 
-.search{
-    margin-left:50px;
-} 
+.search {
+    margin-left: 50px;
+}
+
 #search h2 {
     margin-bottom: 10%;
     font-size: xx-large;
@@ -114,6 +115,7 @@
     padding: 5%;
 
 }
+
 .contact {
     flex: 1;
     padding-top: 0px;
@@ -129,17 +131,19 @@
     font-size: 20px;
 
 }
-.h3{
-    margin-bottom:-10px;
+
+.h3 {
+    margin-bottom: -10px;
 }
+
 .fill {
     font-size: 15px;
     padding-bottom: 90px;
-    margin:20px;
+    margin: 20px;
     padding-right: 65%;
-    border:2px solid #63F2D8;
-    margin-top:0px;
-    margin-left:30px;
+    border: 2px solid #63F2D8;
+    margin-top: 0px;
+    margin-left: 30px;
 }
 
 #main-contact h1 {
@@ -156,4 +160,32 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+@media (max-width:768px) {
+    .btn {
+        left: 181px;
+    }
+
+    .info h2 {
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+
+    #search h2 {
+        margin-bottom: 7px;
+    }
+
+    .search {
+        margin-left: 13px;
+        padding-right: 50px;
+
+    }
+
+    #simple {
+        margin-top: 20px;
+    }
+    .fill{
+        padding-right:20px;
+    }
 }

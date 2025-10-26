@@ -6,3 +6,11 @@
     font-size: 32px;
     color: #63F2D8;
 }
+@media (max-width: 768px){
+    .p {
+        margin: 0px;
+        margin-top: 35px;
+        line-height: 1.7;
+        font-size: 25px;
+    }
+}

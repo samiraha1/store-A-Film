@@ -73,8 +73,43 @@ main {
     font-size: x-large;
     height: 50%;
 }
+/* Make sure document fills viewport */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-#root > .app-root, body > .app-root, .app-root{
+/* app-root is the top wrapper around header/main/footer */
+.app-root {
+  min-height: 100vh;          /* full viewport */
+  display: flex;
+  flex-direction: column;
+}
+
+/* main grows to fill remaining space between header and footer */
+.app-root main,
+.app-main,
+main {
+  flex: 1 1 auto;             /* ← KEY: lets main expand */
+  min-height: 0;              /* allows flex children to scroll properly */
+  box-sizing: border-box;
+  /* optional spacing so content doesn't touch footer */
+  padding-bottom: 1rem;
+}
+
+/* footer stays at bottom */
+footer, .site-footer {
+  flex-shrink: 0;
+}
+
+/* If header is fixed (position:fixed), give main top padding */
+.header-fixed + .app-main, .header-fixed + main {
+  padding-top: 70px; /* match your header height */
+}
+
+
+/* #root > .app-root, body > .app-root, .app-root{
     min-height: 100vh;
     display:flex;
     flex-direction:column;
@@ -83,5 +118,4 @@ main, .app-main{
     flex: 1 1 auto;
 }
 .site-footer, footer{
-    flex-shrink:0;
-}
+    flex-shrink:0; */

@@ -51,3 +51,39 @@
     /* margin-left: 60px;
     margin-right: 60px; */
 }
+
+@media (max-width: 768px) {
+    #title #new-menu {
+        /* display: none; */
+        flex-direction: column;
+        text-align: center;
+    }
+    #mainSec-nav a {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #mainSec-nav {
+        width: 95.4%;
+        display: block;
+    }
+
+    #sec-nav ul{
+        flex-direction: row;
+    }
+    nav, .main-nav, #sec-nav{
+        display:flex;
+    }
+    nav{
+        position:relative;
+        z-index:1000;
+    }
+    #new-menu{
+        flex:1;
+    }
+    
+
+    /* #mainSec-nav.active {
+        display: flex;
+    } */
+}

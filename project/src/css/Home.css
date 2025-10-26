@@ -100,3 +100,45 @@
     margin-top: 0;
 
 }
+a{
+    text-decoration: none;
+}
+@media (max-width: 768px){
+   #sec-playlists2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        /* gap:30px;
+    margin:40px;
+    margin-top:20px;
+    background-color: rgba(11, 12, 16, 0.85); */
+
+    }
+    .searchHome{
+        padding:2px;
+        padding-right:30%;
+        margin-left:-10px;
+        
+    }
+    #friends h3 {
+        font-size: 25px;
+    }
+
+    #main-playlist h3 {
+        font-size: 25px;
+    }
+
+    #friends {
+        flex: 1;
+    }
+
+    #main-playlist {
+        flex: 4;
+        margin: 10px;
+        /* margin-left: -10px; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0 auto;
+
+    } 
+}

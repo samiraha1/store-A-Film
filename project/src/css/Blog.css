@@ -82,3 +82,33 @@
     padding: 10px;
     color: #52a89f;
 }
+#all{
+    height:100%;
+}
+@media (max-width: 768px){
+     #main-blog {
+        width: 90%;
+        margin-top: 20px;
+    }
+    #blog{
+        display:flex;
+        flex-direction:column;
+    }
+
+    .popular {
+        width: 90%;
+        border-bottom: 2px solid #52a89f;
+        border-top: 2px solid #52a89f;
+        flex:1;
+        margin: 10px;
+        padding: 10px;
+
+    }
+
+    .addBlog {
+        position: relative;
+        left: 43%;
+        top: 0px;
+    }
+
+}

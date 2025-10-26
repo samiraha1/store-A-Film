@@ -14,7 +14,7 @@ export default function Header() {
                 <input class="searchHome" type="text" placeholder="Search for a movie..." />
             </div>
             <nav id="nav" class="top">
-                <button id="menu-toggle" class="menu-btn" onclick="toggleMenu()">☰</button>
+                {/* <button id="menu-toggle" class="menu-btn" onclick="toggleMenu()">☰</button> */}
 
                 {/* <ul id="menu">
                 <li><a href="#">Login</a></li>
