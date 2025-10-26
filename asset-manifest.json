@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/store-A-Film/static/css/main.116e5a29.css",
+    "main.js": "/store-A-Film/static/js/main.66c92ed4.js",
+    "static/media/demon slayer.png": "/store-A-Film/static/media/demon slayer.7cd432812607069ab994.png",
+    "static/media/theShining.jpg": "/store-A-Film/static/media/theShining.22c0080f4296f001ed6b.jpg",
+    "static/media/storeafilm-part7.png": "/store-A-Film/static/media/storeafilm-part7.2ce7b93758c4dee99928.png",
+    "static/media/csce.jpg": "/store-A-Film/static/media/csce.d33b15004981fa0e866c.jpg",
+    "static/media/10_things_i_hate_about_you_poster.jpeg": "/store-A-Film/static/media/10_things_i_hate_about_you_poster.00a2db7f1fd1b66e6c03.jpeg",
+    "static/media/valentines-day-background-3060241_640.jpg": "/store-A-Film/static/media/valentines-day-background-3060241_640.6b7be372e25d92f7fd0a.jpg",
+    "static/media/theNotebook.jpg": "/store-A-Film/static/media/theNotebook.6e6ff9efa673eca70469.jpg",
+    "static/media/the fault in our stars.jpg": "/store-A-Film/static/media/the fault in our stars.627db9fe6c94c6731f8a.jpg",
+    "static/media/dracula.jpg": "/store-A-Film/static/media/dracula.22ec3b3d90d9dbdbb892.jpg",
+    "static/media/silhouette-3777403_640.jpg": "/store-A-Film/static/media/silhouette-3777403_640.593fac93976b728202ec.jpg",
+    "static/media/silence of the lambs.jpg": "/store-A-Film/static/media/silence of the lambs.8a91e5b0122c10e1c136.jpg",
+    "static/media/lalaland (2).jpg": "/store-A-Film/static/media/lalaland (2).b31bcbe919241d4e2d8e.jpg",
+    "index.html": "/store-A-Film/index.html",
+    "main.116e5a29.css.map": "/store-A-Film/static/css/main.116e5a29.css.map",
+    "main.66c92ed4.js.map": "/store-A-Film/static/js/main.66c92ed4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.116e5a29.css",
+    "static/js/main.66c92ed4.js"
+  ]
+}
