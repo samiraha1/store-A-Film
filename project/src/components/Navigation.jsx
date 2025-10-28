@@ -4,10 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 
 export default function NavBar() {
+    
     return (
         <nav id="mainSec-nav">
             <div id="sec-nav">
-                <ul id="new-menu">
+                <ul id="new-menu" className={menuOpen?"":"hidden"}>
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/discover">Discover</NavLink></li>
                     <li><NavLink to="/blog">Blog</NavLink></li>

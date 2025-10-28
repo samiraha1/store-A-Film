@@ -51,7 +51,9 @@
     /* margin-left: 60px;
     margin-right: 60px; */
 }
-
+#hidden {
+    display:none;
+}
 @media (max-width: 768px) {
     #title #new-menu {
         /* display: none; */
@@ -83,7 +85,9 @@
     #new-menu{
         flex:1;
     }
-    
+    #hidden {
+        display:flex;
+    }
 
     /* #mainSec-nav.active {
         display: flex;
