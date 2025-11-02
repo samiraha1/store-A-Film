@@ -1,20 +1,16 @@
 import {useState} from "react";
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-import "./../css/Navigation.css";
 import Header from "./components/Header.jsx";
 import Nav from "./components/Navigation.jsx";
 import Footer from "./components/Footer.jsx";
+import csceImage from "./images/csce.jpg";
 
 const Layout = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+    
     return (
-        <div className="app-root">
+        <div className="app-root" style={{backgroundImage:`url(${csceImage})`}}>
             <header>
-                <div id="menu-toggle" class="menu-btn" onClick={toggleMenu}>☰</div>
                 <Header />
             </header>
             <Nav />

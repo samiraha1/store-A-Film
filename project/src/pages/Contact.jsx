@@ -1,4 +1,6 @@
 import "./../css/Contact.css";
+import React from "react";
+import {useState} from "react";
 export default function Contact() {
     const [result, setResult] = React.useState("");
 
@@ -63,7 +65,7 @@ export default function Contact() {
                             <textarea name="message" required></textarea>
                         </p>
 
-                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+                        <input type="checkbox" name="botcheck" class="hidden" style={{display: "none"}} />
 
                         <button class="btn" type="submit">Submit Form</button>
 

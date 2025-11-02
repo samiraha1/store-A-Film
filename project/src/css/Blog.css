@@ -12,6 +12,7 @@
     align-items: center;
     caret-color: #63F2D8;
     scrollbar-color: #63F2D8;
+    overflow-x: hidden;
 
 }
 

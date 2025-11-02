@@ -1,8 +1,11 @@
 import "./../css/MoviePlaylist.css";
+import Movies from "../components/Movies.jsx";
 import silence from '../images/silence of the lambs.jpg';
 import shining from '../images/theShining.jpg';
-import dracula from '../images/dracula.jpg';
+import parasite from '../images/parasite.jpg';
 import insidious from '../images/insidious.png';
+import orphan from '../images/orphan.jpg';
+
 
 export default function MoviePLaylists() {
     return (
@@ -16,22 +19,36 @@ export default function MoviePLaylists() {
 
                 </div>
                 <div id="create">
-                    <div class="movie" id="movies">
-                        <img src={silence} alt="silenceOfTheLambs"/>
-                        <h4>The Silence of the Lambs</h4>
-                    </div>
-                    <div class="movie">
-                        <img src={shining} alt="theShining"/>
-                        <h4>The Shining</h4>
-                    </div>
-                    <div class="movie">
-                        <img src={dracula} alt="Dracula" />
-                        <h4>Dracula</h4>
-                    </div>
-                    <div class="movie">
-                        <img src={insidious} alt="Insidious"/>
-                        <h4>Insidious</h4>
-                    </div>
+                    <Movies
+                        img={silence}
+                        name="The Silence of The Lambs"
+                        director="Jonathan Demme"
+                        release="February 14, 1991"
+                    />
+                    <Movies
+                        img={shining}
+                        name="The Shining"
+                        director="Stephen King"
+                        release="May 23, 1980"
+                    />
+                    <Movies
+                        img={orphan}
+                        name="Orphan"
+                        director="Jaume Collet-Serra"
+                        release="July 24, 2009"
+                    />
+                    <Movies
+                        img={insidious}
+                        name="Insidious"
+                        director="James Wan"
+                        release="April 1, 2011"
+                    />
+                    <Movies
+                        img={parasite}
+                        name="Parasite"
+                        director="Bong Joon Ho"
+                        release="October 11, 2019"
+                    />
                 </div>
             </main>
         </>

@@ -1,7 +1,8 @@
 import "./../css/MoviePlaylist.css";
+import Movies from "../components/Movies.jsx";
 import silence from '../images/10_things_i_hate_about_you_poster.jpeg';
 import shining from '../images/lalaland (2).jpg';
-import dracula from '../images/the fault in our stars.jpg';
+import orphan from '../images/the fault in our stars.jpg';
 import insidious from '../images/theNotebook.jpg';
 
 export default function MoviePLaylists() {
@@ -16,22 +17,30 @@ export default function MoviePLaylists() {
 
                 </div>
                 <div id="create">
-                    <div class="movie" id="movies">
-                        <img src={silence} alt="10ThingsIHateAboutYou"/>
-                        <h4>10 Things I Hate About You</h4>
-                    </div>
-                    <div class="movie">
-                        <img src={shining} alt="LaLaLand"/>
-                        <h4>La La Land</h4>
-                    </div>
-                    <div class="movie">
-                        <img src={dracula} alt="TheFaultInOurStars" />
-                        <h4>The Fault In Our Stars</h4>
-                    </div>
-                    <div class="movie">
-                        <img src={insidious} alt="theNotebook"/>
-                        <h4>The Notebook</h4>
-                    </div>
+                    <Movies
+                        img={silence}
+                        name="10 Things I Hate About You"
+                        director="Gil Junger"
+                        release="March 31, 1999"
+                    />
+                    <Movies
+                        img={shining}
+                        name="La La Land"
+                        director="Damien Chazelle"
+                        release="December 9, 2016"
+                    />
+                    <Movies
+                        img={orphan}
+                        name="The Fault in Our Stars"
+                        director="Josh Boone"
+                        release="June 6, 2014"
+                    />
+                    <Movies
+                        img={insidious}
+                        name="The Notebook"
+                        director="Nick Cassavetes"
+                        release="June 25, 2004"
+                    />
                 </div>
             </main>
         </>

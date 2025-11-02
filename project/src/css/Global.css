@@ -45,7 +45,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    background-image: url("../images/csce.jpg");
+    /*background-image: url("../images/csce.jpg");*/
 }
 
 main {
@@ -127,7 +127,7 @@ footer,
         margin-left: 0%;
         display: flex;
         flex-direction: column;
-        background-image: url(images/csce.jpg);
+        /*background-image: url(images/csce.jpg);*/
         color: #63F2D8;
     }
 
