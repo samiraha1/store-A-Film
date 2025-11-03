@@ -1,13 +1,18 @@
 {
   "files": {
-    "main.css": "/store-A-Film/static/css/main.116e5a29.css",
-    "main.js": "/store-A-Film/static/js/main.55ec581c.js",
-    "static/media/demon slayer.png": "/store-A-Film/static/media/demon slayer.7cd432812607069ab994.png",
+    "main.css": "/store-A-Film/static/css/main.482aac5f.css",
+    "main.js": "/store-A-Film/static/js/main.38c4f8a1.js",
+    "static/media/demon-slayer.png": "/store-A-Film/static/media/demon-slayer.7cd432812607069ab994.png",
+    "static/media/parasite.jpg": "/store-A-Film/static/media/parasite.c35e58735574e7af1aa3.jpg",
+    "static/media/scream.png": "/store-A-Film/static/media/scream.bb275980705e13854d6e.png",
     "static/media/theShining.jpg": "/store-A-Film/static/media/theShining.22c0080f4296f001ed6b.jpg",
+    "static/media/mitchells.jpg": "/store-A-Film/static/media/mitchells.f3c32b10ad97f91fb6c2.jpg",
     "static/media/storeafilm-part7.png": "/store-A-Film/static/media/storeafilm-part7.2ce7b93758c4dee99928.png",
+    "static/media/wakeUpDeadMan.jpg": "/store-A-Film/static/media/wakeUpDeadMan.db34768163864812f6bd.jpg",
     "static/media/csce.jpg": "/store-A-Film/static/media/csce.d33b15004981fa0e866c.jpg",
     "static/media/10_things_i_hate_about_you_poster.jpeg": "/store-A-Film/static/media/10_things_i_hate_about_you_poster.00a2db7f1fd1b66e6c03.jpeg",
     "static/media/valentines-day-background-3060241_640.jpg": "/store-A-Film/static/media/valentines-day-background-3060241_640.6b7be372e25d92f7fd0a.jpg",
+    "static/media/orphan.jpg": "/store-A-Film/static/media/orphan.b4cf7084db1cecedad8d.jpg",
     "static/media/theNotebook.jpg": "/store-A-Film/static/media/theNotebook.6e6ff9efa673eca70469.jpg",
     "static/media/the fault in our stars.jpg": "/store-A-Film/static/media/the fault in our stars.627db9fe6c94c6731f8a.jpg",
     "static/media/dracula.jpg": "/store-A-Film/static/media/dracula.22ec3b3d90d9dbdbb892.jpg",
@@ -15,11 +20,11 @@
     "static/media/silence of the lambs.jpg": "/store-A-Film/static/media/silence of the lambs.8a91e5b0122c10e1c136.jpg",
     "static/media/lalaland (2).jpg": "/store-A-Film/static/media/lalaland (2).b31bcbe919241d4e2d8e.jpg",
     "index.html": "/store-A-Film/index.html",
-    "main.116e5a29.css.map": "/store-A-Film/static/css/main.116e5a29.css.map",
-    "main.55ec581c.js.map": "/store-A-Film/static/js/main.55ec581c.js.map"
+    "main.482aac5f.css.map": "/store-A-Film/static/css/main.482aac5f.css.map",
+    "main.38c4f8a1.js.map": "/store-A-Film/static/js/main.38c4f8a1.js.map"
   },
   "entrypoints": [
-    "static/css/main.116e5a29.css",
-    "static/js/main.55ec581c.js"
+    "static/css/main.482aac5f.css",
+    "static/js/main.38c4f8a1.js"
   ]
 }
