@@ -13,7 +13,6 @@ export default function Blog() {
     });
   }
 
-  // NOTE: fixed regex (use $ not &), and case-insensitive flag
   const images = importAll(
     require.context("./../images/slideshow", false, /\.(png|jpe?g|svg)$/i)
   );
@@ -26,7 +25,6 @@ export default function Blog() {
 
   const [index, setIndex] = useState(0);
 
-  // Keep index in-range if images array changes
   useEffect(() => {
     if (images.length === 0) {
       setIndex(0);

@@ -1,7 +1,7 @@
 #forward-arrow {
     position: absolute;
-    right: 100px;
-    top: 65%;
+    right: 210px;
+    top: 85%;
     text-shadow: 0 0 10px #2ee, 0 0 10px #2ee, 0 0 10px #00ffff;
     cursor: pointer;
     z-index: 1000;
@@ -14,8 +14,8 @@
 
 #backward-arrow {
     position: absolute;
-    top: 15%;
-    left: 100px;
+    top: 85%;
+    left: 230px;
     text-shadow: 0 0 5px #2ee, 0 0 5px #2ee, 0 0 10px #00ffff;
     cursor: pointer;
     z-index: 1000;
@@ -37,15 +37,50 @@
     align-items: center;
 }
 
-img {
+#slideshow img {
     margin-top: 20px;
-    width: 100%;
-    height:80%;
-    object-position:center;
-    object-fit:cover;
+    width: 80%;
+    margin-left: 140px;
+    height: 80%;
+    align-items: center;
+    text-align: center;
+    object-position: center;
+    object-fit: cover;
+}
+
+#slide-bio {
+    text-align: center;
+    margin-left: 20px;
+    position: absolute;
+    top: 119.3%;
+    left: 155px;
+    width: 76%;
+    display: block;
+    background: rgba(0, 0, 0, .85);
+    padding: 18px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: large;
 }
 
 @media(max-width:768px) {
+    #slideshow img {
+        margin-top: 20px;
+        width: 100%;
+        height: 80%;
+        object-position: center;
+        object-fit: cover;
+        left: ;
+    }
+
+    /* img {
+        margin-top: 20px;
+        width: 100%;
+        height: 80%;
+        object-position: center;
+        object-fit: cover;
+    } */
+
     #backward-arrow {
         top: 80%;
         left: 100px;
@@ -57,7 +92,7 @@ img {
         top: 80%;
     }
 
-    #slide-bio{
+    #slide-bio {
         text-align: center;
         margin-left: 20px;
         position: absolute;
