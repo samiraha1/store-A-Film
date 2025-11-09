@@ -1,30 +1,38 @@
 import "./../css/Contact.css";
 import React from "react";
-import {useState} from "react";
+import { useState } from "react";
 export default function Contact() {
-    const [result, setResult] = React.useState("");
+    const [result, setResult] = useState("");
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        setResult("Sending....");
-        const formData = new FormData(event.target);
+        setResult("Sending...");
 
+        const formData = new FormData(event.target);
         formData.append("access_key", "e84e3927-8b1a-4af9-b2d0-7f1c2d516fef");
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData,
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (data.success) {
-            setResult("Form Submitted Successfully");
-            event.target.reset();
-        } else {
-            console.log("Error", data);
-            setResult(data.message);
+            if (data.success) {
+                setResult("Form Submitted Successfully!");
+                event.target.reset();
+            } else {
+                console.log("Error:", data);
+                setResult(`${data.message || "Something went wrong."}`);
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            setResult(" Network error — please try again later.");
         }
+
+        // optional: clear message after 3 seconds
+        setTimeout(() => setResult(""), 3000);
     };
 
     return (
@@ -46,31 +54,37 @@ export default function Contact() {
             <div class="info">
                 <h2>Fill out your information for more help:</h2>
                 <div id="email">
-                    <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" >
-
-                        <input type="hidden" name="access_key" value="e84e3927-8b1a-4af9-b2d0-7f1c2d516fef" />
-
-                        <p class="infoName">
-                            <label for="name">Full Name: </label>
+                    <form id="contact-form" onSubmit={onSubmit}>
+                        <p className="infoName">
+                            <label htmlFor="name">Full Name: </label>
                             <input type="text" name="name" required />
                         </p>
-                        <p class="infoName">
-                            <label for="email">Email: </label>
 
+                        <p className="infoName">
+                            <label htmlFor="email">Email: </label>
                             <input type="email" name="email" required />
-
                         </p>
-                        <p class="mail">
-                            <label for="message">Message: </label>
+
+                        <p className="mail">
+                            <label htmlFor="message">Message: </label>
                             <textarea name="message" required></textarea>
                         </p>
 
-                        <input type="checkbox" name="botcheck" class="hidden" style={{display: "none"}} />
+                        <input
+                            type="checkbox"
+                            name="botcheck"
+                            className="hidden"
+                            style={{ display: "none" }}
+                        />
 
-                        <button class="btn" type="submit">Submit Form</button>
+                        <button className="btn" type="submit">
+                            Submit Form
+                        </button>
 
+                        {result && (
+                            <span> {result}</span>
+                        )}
                     </form>
-                    <span>{result}</span>
                 </div>
             </div>
         </main>
