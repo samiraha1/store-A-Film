@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/store-A-Film/static/css/main.afbf710e.css",
-    "main.js": "/store-A-Film/static/js/main.38c4f8a1.js",
+    "main.css": "/store-A-Film/static/css/main.a00b8eb9.css",
+    "main.js": "/store-A-Film/static/js/main.7f2880a6.js",
     "static/media/demon-slayer.png": "/store-A-Film/static/media/demon-slayer.7cd432812607069ab994.png",
     "static/media/parasite.jpg": "/store-A-Film/static/media/parasite.c35e58735574e7af1aa3.jpg",
     "static/media/scream.png": "/store-A-Film/static/media/scream.bb275980705e13854d6e.png",
@@ -20,11 +20,11 @@
     "static/media/silence of the lambs.jpg": "/store-A-Film/static/media/silence of the lambs.8a91e5b0122c10e1c136.jpg",
     "static/media/lalaland (2).jpg": "/store-A-Film/static/media/lalaland (2).b31bcbe919241d4e2d8e.jpg",
     "index.html": "/store-A-Film/index.html",
-    "main.afbf710e.css.map": "/store-A-Film/static/css/main.afbf710e.css.map",
-    "main.38c4f8a1.js.map": "/store-A-Film/static/js/main.38c4f8a1.js.map"
+    "main.a00b8eb9.css.map": "/store-A-Film/static/css/main.a00b8eb9.css.map",
+    "main.7f2880a6.js.map": "/store-A-Film/static/js/main.7f2880a6.js.map"
   },
   "entrypoints": [
-    "static/css/main.afbf710e.css",
-    "static/js/main.38c4f8a1.js"
+    "static/css/main.a00b8eb9.css",
+    "static/js/main.7f2880a6.js"
   ]
 }
