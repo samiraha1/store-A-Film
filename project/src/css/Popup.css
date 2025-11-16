@@ -1,0 +1,36 @@
+.modal-body {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    padding-top: 2%;
+    width: 50%;
+    background: black;
+    z-index: 1100;
+    text-align: center;
+    border: 2px solid;
+}
+
+img {
+    width: 90%;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+}
+
+.modal-close {
+    z-index: 1100;
+    position:absolute;
+    left:50%;
+    top:50%;
+
+}

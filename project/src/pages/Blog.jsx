@@ -1,14 +1,14 @@
 import "./../css/Blog.css";
 import "./../css/Slideshow.css";
-import him from '../images/him.jpg';
-import demon from '../images/demon-slayer.png'; // rename file to remove space if needed
 import { useState, useEffect } from "react";
+import BlogPost from "../components/BlogPost";
+import BlogModal from "../components/BlogModal";
+import AddDialog from "../components/add-dialog.jsx";
 
 export default function Blog() {
   function importAll(r) {
     return r.keys().map((key) => {
       const mod = r(key);
-      // support both default export and direct value
       return mod.default || mod;
     });
   }
@@ -16,132 +16,169 @@ export default function Blog() {
   const images = importAll(
     require.context("./../images/slideshow", false, /\.(png|jpe?g|svg)$/i)
   );
-  const bios = 
-  [ "The Mitchells Vs The Machines 2 In The Works From Sony Pictures Animation — Netflix To Release",
+
+  const bios = [
+    "The Mitchells Vs The Machines 2 In The Works From Sony Pictures Animation — Netflix To Release",
     "Scream 7’ Trailer: Neve Campbell Returns to Face Ghostface in the Franchise’s Next Chapter",
-    "Wake Up Dead Man Was ‘The Hardest Script I’ve Ever Written’, Says Rian Johnson"];
+    "Wake Up Dead Man Was ‘The Hardest Script I’ve Ever Written’, Says Rian Johnson",
+  ];
 
-  const slides = images.map((src,i)=>({src,bio:bios[i] || ""}));
+  const slides = images.map((src, i) => ({ src, bio: bios[i] || "" }));
 
-  const [index, setIndex] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(0);
 
   useEffect(() => {
     if (images.length === 0) {
-      setIndex(0);
+      setSlideIndex(0);
       return;
     }
-    if (index >= images.length) {
-      setIndex(images.length - 1);
+    if (slideIndex >= images.length) {
+      setSlideIndex(images.length - 1);
     }
-  }, [images.length, index]);
+  }, [images.length, slideIndex]);
 
   const slideForward = () => {
     if (images.length === 0) return;
-    setIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    console.log("forward");
+    setSlideIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
   const slideBackward = () => {
     if (images.length === 0) return;
-    setIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-    console.log("backward");
+    setSlideIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const [moviePosts, setMoviePosts] = useState([]);
+  const [loadingMovies, setLoadingMovies] = useState(true);
+  const [movieError, setMovieError] = useState(null);
+
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    (async () => {
+      try {
+        const response = await fetch(
+          "https://movie-backend-t7h7.onrender.com/api/movies/"
+        );
+
+        if (!response.ok) {
+          throw new Error(`Error fetching movies: ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (isMounted) {
+          setMoviePosts(data || []);
+        }
+      } catch (error) {
+        console.error("Error fetching movies:", error);
+        if (isMounted) {
+          setMovieError("There was a problem loading movie posts.");
+        }
+      } finally {
+        if (isMounted) {
+          setLoadingMovies(false);
+        }
+      }
+    })();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const handlePostClick = (movie) => {
+    setSelectedMovie(movie);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedMovie(null);
+  };
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
+
+  const handleAddPost = (values) => {
+    const newPost = {
+      id: Date.now(),
+      title: values.title,
+      description: values.description,
+      img: "", 
+    };
+    setMoviePosts((prev) => [newPost, ...prev]);
   };
 
   return (
     <main id="main-blog">
       <h2 className="blog-title">What's going on?</h2>
-      <a className="addBlog" href="addBlog.html">Add Blog Post</a>
+      <button className="addBlog" type="button" onClick={handleOpenDialog}>
+        Add Blog Post
+      </button>
+
 
       <div id="slideshow">
         {slides.length > 0 ? (
           <>
             <img
-                src={images[index]}
-                alt={`Slide ${index + 1}`}
+              src={images[slideIndex]}
+              alt={`Slide ${slideIndex + 1}`}
             />
-            <p id="slide-bio">{slides[index].bio}</p>
+            <p id="slide-bio">{slides[slideIndex].bio}</p>
           </>
         ) : (
           <div className="no-slides">No slideshow images found</div>
         )}
 
-        <p id="forward-arrow" onClick={slideForward}>&gt;</p>
-        <p id="backward-arrow" onClick={slideBackward}>&lt;</p>
-
-        {/* <p id="blogP">
-          ‘Scream 7’ Trailer: Neve Campbell Returns to Face Ghostface in the Franchise’s Next Chapter
-        </p> */}
+        <p id="forward-arrow" onClick={slideForward}>
+          &gt;
+        </p>
+        <p id="backward-arrow" onClick={slideBackward}>
+          &lt;
+        </p>
       </div>
 
       <div id="blog">
-        <div className="popular">
-          <img src={demon} alt="Demon Slayer" />
-          <h2>New Demon Slayer Movie</h2>
-          <p className="post">This movie was so good. I definitely recommend...</p>
-        </div>
+        {loadingMovies && (
+          <p className="post loading">Loading movie posts...</p>
+        )}
 
-        <div className="popular">
-          <img src={him} alt="Him movie" />
-          <h2>Negative Reviews on the movie 'Him'</h2>
-          <p className="post">There have been lots of opinions on the new Him movie...</p>
-        </div>
+        {movieError && !loadingMovies && (
+          <p className="post error">{movieError}</p>
+        )}
+
+        {!loadingMovies && !movieError && moviePosts.length === 0 && (
+          <p className="post">No movie posts available right now.</p>
+        )}
+
+        {!loadingMovies &&
+          !movieError &&
+          moviePosts.map((movie) => (
+            <div className="popular" key={movie.id}>
+              <BlogPost movie={movie} onClick={handlePostClick} />
+            </div>
+          ))}
       </div>
+
+      <BlogModal
+        movie={selectedMovie}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
+
+      <AddDialog
+        isOpen={isDialogOpen}
+        onClose={handleCloseDialog}
+        onSubmit={handleAddPost}
+      />
     </main>
   );
 }
-
-// import "./../css/Blog.css";
-// import "./../css/Slideshow.css"
-// import him from '../images/him.jpg';
-// import demon from '../images/demon slayer.png';
-// import {useState} from "react";
-
-// export default function Blog() {
-//     function importAll(r) {
-//         return r.keys().map(r);
-//     }
-//     const images = importAll(
-//         require.context("./../images/slideshow", false, /\.(png|jpe?g|svg)&/)
-//     );
-
-//     const [index, setIndex] = useState(0);
-
-//     const slideForward = () => {
-//         setIndex(index === images.length-1 ? 0 : index+1)
-//         console.log("forward");
-//     }
-
-//     const slideBackward = () => {
-//         setIndex(index === 0 ? images.length-1 : index-1)
-//         console.log("backward");
-
-        
-//     }
-//     return (
-//         <main id="main-blog">
-//             <h2 class="blog-title">What's going on?</h2>
-//             <a class="addBlog" href="addBlog.html">Add Blog Post</a>
-//             <div id="slideshow">
-//                 <img src={images[index]} alt={images[index]} />
-//                 <p id="forward-arrow" onClick={slideForward}>&gt;</p>
-//                 <p id="backward-arrow" onClick={slideBackward}>&lt;</p>
-//                 <p id="blogP">‘Scream 7’ Trailer: Neve Campbell Returns to Face Ghostface in the Franchise’s Next Chapter </p>
-//             </div>
-//             <div id="blog">
-//                 <div class="popular">
-//                     <img src={demon} alt="DemonSlayer" />
-//                     <h2>New Demon Slayer Movie</h2>
-//                     <p class="post">This movie was so good. I definitly recommend. It explains a lot of backstory but it's
-//                         so beautiful</p>
-//                 </div>
-//                 <div class="popular">
-//                     <img src={him} alt="post" />
-//                     <h2>Negative Reviews on the movie 'Him'</h2>
-//                     <p class="post">There have been lots of opinions on the new Him movie. Many don't like the fact that
-//                         they advertised the movie as being made by Jordan Peele but it was actually directed by Justin
-//                         Tipping and is not a Jordan Peele movie.</p>
-//                 </div>
-//             </div>
-//         </main>
-//     );
-// }
