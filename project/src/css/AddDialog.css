@@ -1,7 +1,253 @@
-/* Add Dialog / Modal Styles - matches your blog theme */
-
-/* Overlay backdrop - darkens the background */
 #add-dialog.w3-modal {
+    display: block;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.w3-modal-content {
+    background-color: rgba(11, 12, 16, 0.95); 
+    margin: 10% auto;
+    border: 2px solid #52a89f; 
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(82, 168, 159, 0.5);
+    animation: modalFadeIn 0.3s ease;
+}
+
+.w3-container {
+    padding: 30px;
+    color: #63F2D8; 
+}
+
+#dialog-close.w3-button.w3-display-topright {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #63F2D8;
+    font-size: 28px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+#dialog-close.w3-button.w3-display-topright:hover {
+    color: #52a89f;
+    text-shadow: 0 0 10px #52a89f;
+}
+
+#add-property-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#add-property-form p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#add-property-form input[type="text"],
+#add-property-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(11, 12, 16, 0.9);
+    border: 2px solid #52a89f;
+    border-radius: 5px;
+    color: #63F2D8;
+    font-size: 16px;
+    font-family: inherit;
+    caret-color: #63F2D8;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+#add-property-form input[type="text"]::placeholder,
+#add-property-form textarea::placeholder {
+    color: #49A69C;
+    opacity: 0.7;
+}
+
+#add-property-form input[type="text"]:focus,
+#add-property-form textarea:focus {
+    outline: none;
+    border-color: #63F2D8;
+    box-shadow: 0 0 10px rgba(99, 242, 216, 0.3);
+}
+
+#add-property-form input.input-error,
+#add-property-form textarea.input-error {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+}
+
+#add-property-form input.input-error:focus,
+#add-property-form textarea.input-error:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.error-message {
+    display: block;
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 5px;
+    padding-left: 5px;
+    animation: fadeIn 0.3s ease;
+}
+
+#add-property-form button[type="submit"].w3-button {
+    background-color: #52a89f;
+    color: #0B0C10;
+    border: 2px solid #52a89f;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+#add-property-form button[type="submit"].w3-button:hover {
+    background-color: #63F2D8;
+    border-color: #63F2D8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(99, 242, 216, 0.4);
+}
+
+#add-property-form button[type="submit"].w3-button:active {
+    transform: translateY(0);
+}
+
+#add-property-form label {
+    color: #63F2D8;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.image-upload-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.file-upload-label {
+    color: #63F2D8;
+    font-size: 14px;
+    margin-bottom: 0;
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 2px dashed #52a89f;
+    border-radius: 5px;
+    text-align: center;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.file-upload-label:hover {
+    border-color: #63F2D8;
+    background-color: rgba(82, 168, 159, 0.1);
+}
+
+.file-input {
+    display: none;
+}
+
+.image-preview-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    border: 2px solid #52a89f;
+    border-radius: 5px;
+    object-fit: contain;
+    background-color: rgba(11, 12, 16, 0.5);
+}
+
+.remove-image-btn {
+    background-color: transparent;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.remove-image-btn:hover {
+    background-color: #ff6b6b;
+    color: #0B0C10;
+}
+
+.submit-status {
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    animation: slideIn 0.3s ease;
+}
+
+.submit-status-success {
+    background-color: rgba(82, 168, 159, 0.2);
+    border: 2px solid #52a89f;
+    color: #63F2D8;
+}
+
+.submit-status-error {
+    background-color: rgba(255, 107, 107, 0.2);
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b;
+}
+
+#add-property-form button[type="submit"].w3-button:disabled {
+    background-color: #49A69C;
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#add-property-form button[type="submit"].w3-button:disabled:hover {
+    background-color: #49A69C;
+    border-color: #52a89f;
+    transform: none;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .w3-modal-content {
+        width: 90%;
+        margin: 20% auto;
+    }
+    
+    .w3-container {
+        padding: 20px;
+    }
+}
+
+
+/* #add-dialog.w3-modal {
     display: block;
     position: fixed;
     z-index: 10000;
@@ -10,16 +256,13 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent overlay */
+    background-color: rgba(0, 0, 0, 0.8); 
 }
 
-/* Modal content box - the actual popup */
 .w3-modal-content {
-    background-color: rgba(11, 12, 16, 0.95); /* Same dark background as your blog */
-    margin: 10% auto; /* Centers vertically */
-    border: 2px solid #52a89f; /* Matching your border color */
-    border-radius: 10px;
-    width: 80%;
+    background-color: rgba(11, 12, 16, 0.95); 
+    margin: 10% auto; 
+    border: 2px solid #52a89f; 
     max-width: 500px;
     box-shadow: 0 4px 20px rgba(82, 168, 159, 0.5);
     padding-right:30px;
@@ -125,4 +368,4 @@
     .w3-container {
         padding: 20px;
     }
-}
+} */
