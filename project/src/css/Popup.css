@@ -1,13 +1,14 @@
 .modal-body {
     position: absolute;
-    top: 20%;
-    left: 25%;
+    top: 18%;
+    left: 20%;
     padding-top: 2%;
     width: 50%;
     background: black;
     z-index: 1100;
     text-align: center;
     border: 2px solid;
+    padding:5%;
 }
 
 img {
@@ -28,9 +29,33 @@ img {
 }
 
 .modal-close {
-    z-index: 1100;
+    z-index: 1200;
     position:absolute;
-    left:50%;
-    top:50%;
+    left:76%;
+    top:20%;
+    background:none;
+    color: #49A69C;
+    border: none;
+    font-size:xx-large;
+    cursor:pointer;
 
+}
+@media (max-width: 768px) {
+    .modal-close {
+    z-index: 1200;
+    position:absolute;
+    left:78%;
+    top:27%;
+    background:none;
+    color: #49A69C;
+    border: none;
+    font-size:xx-large;
+    cursor:pointer;
+
+}
+    .modal-body{
+        left:15%;
+        top:25%;
+        padding:10%;
+    }
 }
