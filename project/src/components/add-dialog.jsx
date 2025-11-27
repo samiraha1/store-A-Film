@@ -1,9 +1,10 @@
-import "../css/AddDialog.css";
 import React, { useState } from "react";
+import "../css/AddDialog.css";
 
 const AddDialog = (props) => {
   const [inputs, setInputs] = useState({});
   const [result, setResult] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -19,6 +20,7 @@ const AddDialog = (props) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
     setResult("Sending....");
 
     const formData = new FormData(event.target);
@@ -32,28 +34,35 @@ const AddDialog = (props) => {
         }
       );
 
-      if (response.status === 200) {
+      if (response.ok || response.status === 201) {
         const newMovie = await response.json();
         setResult("Post Successfully Added");
-        event.target.reset(); // Reset form fields
-        setInputs({}); // Clear inputs state
+        event.target.reset(); 
+        setInputs({}); 
         if (props.onSubmit) {
-          props.onSubmit(newMovie); // Call parent's onSubmit if provided
+          props.onSubmit(newMovie); 
         }
-        // Close dialog after short delay to show success message
         setTimeout(() => {
           if (props.onClose) {
             props.onClose();
           }
         }, 1500);
       } else {
-        const errorData = await response.json().catch(() => ({ message: "Unknown error" }));
-        setResult(errorData.message || "Error adding post");
-        console.log("Error adding post", response);
+        let errorMessage = `Error adding post (${response.status})`;
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorData.error || errorMessage;
+        } catch (e) {
+          errorMessage = response.statusText || errorMessage;
+        }
+        setResult(errorMessage);
+        console.error("Error adding post", response.status, errorMessage);
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Network error:", error);
       setResult("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -62,7 +71,7 @@ const AddDialog = (props) => {
   }
 
   return (
-    <div id="add-dialog" className="w3-modal">
+    <div id="add-dialog" className="w3-modal" style={{ display: props.isOpen ? 'block' : 'none' }}>
       <div className="w3-modal-content">
         <div className="w3-container">
           <span
@@ -72,6 +81,7 @@ const AddDialog = (props) => {
           >
             &times;
           </span>
+          <h2>Add New Blog Post</h2>
           <form id="add-property-form" onSubmit={onSubmit}>
             <p>
               <label htmlFor="name">Post Title:</label>
@@ -82,6 +92,8 @@ const AddDialog = (props) => {
                 value={inputs.name || ""}
                 onChange={handleChange}
                 required
+                minLength={1}
+                maxLength={200}
               />
             </p>
             <p>
@@ -93,6 +105,8 @@ const AddDialog = (props) => {
                 onChange={handleChange}
                 rows="4"
                 required
+                minLength={1}
+                maxLength={2000}
               />
             </p>
 
@@ -104,6 +118,7 @@ const AddDialog = (props) => {
                     src={URL.createObjectURL(inputs.img)}
                     alt="Preview"
                     className="image-preview"
+                    style={{ maxWidth: '200px', maxHeight: '200px' }}
                   />
                 )}
               </p>
@@ -114,15 +129,21 @@ const AddDialog = (props) => {
                   id="img"
                   name="img"
                   onChange={handleImageChange}
-                  accept="image/*"
+                  accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
                 />
               </p>
             </section>
 
             <p>
-              <button type="submit">Submit</button>
+              <button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
             </p>
-            <p>{result}</p>
+            <p style={{ 
+              color: result.includes("Successfully") ? 'green' : result.includes("Error") || result.includes("error") ? 'red' : 'black' 
+            }}>
+              {result}
+            </p>
           </form>
         </div>
       </div>

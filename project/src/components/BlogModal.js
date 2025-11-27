@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import EditDialog from "./edit-dialog";
 import DeleteDialog from "./delete-dialog";
+import "../css/Popup.css"
+
 
 function BlogModal({ movie, isOpen, onClose, onUpdate, onDelete }) {
     const [showEditDialog, setShowEditDialog] = useState(false);
@@ -117,65 +119,3 @@ function BlogModal({ movie, isOpen, onClose, onUpdate, onDelete }) {
 }
 
 export default BlogModal;
-
-// import React, { useState } from "react";
-// import "../css/Popup.css"
-// import EditDialog from "./edit-dialog";
-
-// function MovieModal({ movie, isOpen, onClose }) {
-//     const [showEditDialog, setShowEditDialog] = useState(false);
-
-//     const openEditDialog = () => {
-//         setShowEditDialog(true);
-//     }
-//     const closeEditDialog = () => {
-//         setShowEditDialog(false)
-//     }
-
-//     if (!isOpen || !movie) return null;
-
-//     const movieTitle = movie.name || movie.title || "Movie";
-//     const movieDescription = movie.description || "";
-
-//     return (
-//         <section>
-//             {showEditDialog ? (<EditDialog closeDialog={closeEditDialog}
-//                 _id={MovieModal._id}
-//                 title={MovieModal.title}
-//                 description={MovieModal.description}
-//                 mainImage={MovieModal.img}
-//             />) : ""};
-//             <div className="modal-overlay" onClick={onClose}>
-//                 <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-//                     <button className="modal-close" onClick={onClose}>
-//                         ×
-//                     </button>
-//                     <div className="modal-body">
-//                         <div className="edit">
-//                             <a href="#" onClick={openEditDialog}>
-//                                 &#9998;
-//                             </a>
-//                             {/* onClick={openDeleteDialog}  */}
-//                             <a href="#" >
-//                                 &#x2715;
-//                             </a>
-//                         </div>
-//                         {movie.img && (
-//                             <img
-//                                 src={`https://movie-backend-t7h7.onrender.com${movie.img}`}
-//                                 alt={movieTitle}
-//                                 className="modal-image"
-//                             />
-//                         )}
-//                         <div className="modal-info">
-//                             <h2>{movieTitle}</h2>
-//                             {movieDescription && <p>{movieDescription}</p>}
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// }
-
-// export default MovieModal;

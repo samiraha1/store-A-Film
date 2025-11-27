@@ -1,3 +1,6 @@
+body{
+    color:#63F2D8;
+}
 #add-dialog.w3-modal {
     display: block;
     position: fixed;
