@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../css/AddDialog.css";
+import "../css/delete.css"
 
 const DeleteDialog = (props) => {
     const [result, setResult] = useState("");
@@ -87,37 +88,3 @@ const DeleteDialog = (props) => {
 };
 
 export default DeleteDialog;
-
-// import React, { useState } from "react"
-
-// const BlogDeleteDialog = (props) => {
-//     const [result, setResult] = useState("");
-
-//     const deleteBlog = async() => {
-//         const response = await fetch(`http://localhost:3001/api/movies/${props._id}`, {
-//             method:"DELETE"
-//         });
-
-//         if(response.status === 200) {
-//             setResult("House successfully delete");
-//             props.closeDeleteDialog();
-//             props.hideBlog();
-//         } else {
-//             setResult("Sorry, we couldn't delete the house");
-//         }
-
-//     };
-
-//     return (
-//         <div id="delete-content">
-//             <h3>Are you sure you want to delete the {props.name}</h3>
-//             <section>
-//               <button onClick = {props.closeDeleteDialog}>No</button>            
-//               <button onClick={deleteBlog}>Yes</button>
-//             </section>
-//             <span>{result}</span>
-//         </div>
-//     );
-// };
-
-// export default BlogDeleteDialog;
