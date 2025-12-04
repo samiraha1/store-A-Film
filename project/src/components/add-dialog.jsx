@@ -84,12 +84,12 @@ const AddDialog = (props) => {
           <h2>Add New Blog Post</h2>
           <form id="add-property-form" onSubmit={onSubmit}>
             <p>
-              <label htmlFor="name">Post Title:</label>
+              <label htmlFor="title">Post Title:</label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={inputs.name || ""}
+                id="title"
+                name="title"
+                value={inputs.title || ""}
                 onChange={handleChange}
                 required
                 minLength={1}
