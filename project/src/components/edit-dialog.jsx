@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import "../css/AddDialog.css";
 
+
 const EditDialog = ({ isOpen, movie = {}, onClose, onUpdate }) => {
-  // Accept both _id or id from backend
   const movieId = movie._id || movie.id || "";
 
-  // Extract fields from the incoming movie object
   const initialTitle = movie.title || "";
   const initialDescription = movie.description || "";
   const initialMainImage = movie.main_image || "";
@@ -13,32 +12,27 @@ const EditDialog = ({ isOpen, movie = {}, onClose, onUpdate }) => {
   const [inputs, setInputs] = useState({
     title: initialTitle,
     description: initialDescription,
-    img: null, // File object when a new image is chosen
+    img: null, 
   });
 
-  const [prevSrc, setPrevSrc] = useState(""); // preview URL (existing or object URL)
+  const [prevSrc, setPrevSrc] = useState("");
   const [errors, setErrors] = useState({});
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Keep a ref to the object URL so we can revoke it on cleanup
   const objectUrlRef = useRef(null);
 
-  // Build full preview URL for existing main_image from backend
   const getImagePreviewUrlFromBackend = (mainImagePath) => {
     if (!mainImagePath) return "";
     if (mainImagePath.startsWith("http") || mainImagePath.startsWith("data:")) {
       return mainImagePath;
     }
-    // backend serves: /images/xxx
     if (mainImagePath.startsWith("/")) {
       return `https://movie-backend-t7h7.onrender.com${mainImagePath}`;
     }
-    // fallback (unlikely)
     return `https://movie-backend-t7h7.onrender.com/${mainImagePath}`;
   };
 
-  // Initialize state / preview when dialog opens or movie changes
   useEffect(() => {
     setInputs({
       title: initialTitle,
@@ -47,17 +41,13 @@ const EditDialog = ({ isOpen, movie = {}, onClose, onUpdate }) => {
     });
     setErrors({});
     setResult("");
-    // set preview to backend image (if present)
     setPrevSrc(getImagePreviewUrlFromBackend(initialMainImage));
-    // revoke any previous object URL stored
     if (objectUrlRef.current) {
       URL.revokeObjectURL(objectUrlRef.current);
       objectUrlRef.current = null;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId, initialTitle, initialDescription, initialMainImage, isOpen]);
 
-  // Cleanup object URL when component unmounts
   useEffect(() => {
     return () => {
       if (objectUrlRef.current) {
@@ -67,7 +57,6 @@ const EditDialog = ({ isOpen, movie = {}, onClose, onUpdate }) => {
     };
   }, []);
 
-  // Simple client-side validation that matches backend rules
   const validateForm = () => {
     const newErrors = {};
     const title = (inputs.title || "").trim();
@@ -115,7 +104,6 @@ const EditDialog = ({ isOpen, movie = {}, onClose, onUpdate }) => {
       return;
     }
 
-    // revoke previous object URL if exists
     if (objectUrlRef.current) {
       URL.revokeObjectURL(objectUrlRef.current);
       objectUrlRef.current = null;
@@ -131,7 +119,6 @@ const EditDialog = ({ isOpen, movie = {}, onClose, onUpdate }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    // basic guard: must have an id to update
     if (!movieId) {
       setResult("Missing movie id — cannot update.");
       return;
@@ -161,24 +148,19 @@ const EditDialog = ({ isOpen, movie = {}, onClose, onUpdate }) => {
         }
       );
 
-      // if response has no JSON body, avoid crash
       let data = null;
       try {
         data = await response.json();
       } catch (err) {
-        // ignore json parse errors (data stays null)
       }
 
       if (response.ok) {
         setResult("Movie updated successfully!");
-        // return the updated movie to parent if available
         if (onUpdate) onUpdate(data || {});
-        // close after a short delay so user sees success
         setTimeout(() => {
           if (onClose) onClose();
         }, 1200);
       } else {
-        // try to display useful server message
         const serverMessage = (data && (data.message || data.error)) || `Error updating movie (${response.status})`;
         setResult(serverMessage);
       }
@@ -193,7 +175,7 @@ const EditDialog = ({ isOpen, movie = {}, onClose, onUpdate }) => {
   if (!isOpen) return null;
 
   return (
-    <div id="edit-dialog" className="w3-modal" style={{ display: isOpen ? "block" : "none" }}>
+    <div id="add-dialog" className="w3-modal" style={{ display: isOpen ? "block" : "none" }}>
       <div className="w3-modal-content">
         <div className="w3-container">
           <span id="dialog-close" className="w3-button w3-display-topright" onClick={onClose}>
@@ -202,7 +184,7 @@ const EditDialog = ({ isOpen, movie = {}, onClose, onUpdate }) => {
 
           <h2>Edit Movie Post</h2>
 
-          <form id="edit-property-form" onSubmit={onSubmit} encType="multipart/form-data">
+          <form id="add-property-form" onSubmit={onSubmit} encType="multipart/form-data">
             <p>
               <label htmlFor="title">Post Title:</label>
               <input
@@ -279,3 +261,4 @@ const EditDialog = ({ isOpen, movie = {}, onClose, onUpdate }) => {
 };
 
 export default EditDialog;
+
